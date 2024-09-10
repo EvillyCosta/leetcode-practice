@@ -4,17 +4,25 @@
 int main()
 {
     int tamanho = 0;
-    int x = 1238, temp = x;
+    int x = 345, temp = x;
     float res;
 
     while (temp != 0)
     { // temporario pra preservar o valor de x
         temp = temp / 10;
         tamanho++;
+        printf("tamanho = %d\n", tamanho);
     }
 
-    int i = tamanho;
+    if (x < 0) { //mudou valor de x para positivo
+        x = x*(-1);
+    }
+
+    printf("valor de x = %d\n", x);
+
+    int i = 0;
     float *digitos = (float *)malloc(tamanho * sizeof(float));
+    float *digitos_invertidos = (float *) malloc (tamanho * sizeof(float));
     int inteiro = 0;
     float decimal = 0;
     float div = (float)x;
@@ -31,12 +39,22 @@ int main()
         }
         digitos[i] = decimal * 10;
         div = (float)inteiro;
-        i--;
+        i++;
+        printf("posição i = %d\n", i);
+    }
+
+    int k = tamanho;
+    while (k >= 0) {
+        // digitos_invertidos[k] = 
+
+    
+        k--;
+        printf("valor de k = %d", k);
     }
 
     for (int j = 0; j < tamanho; j++)
     {
-        printf("%d, posição = %d\n", (int)digitos[j], j);
+        printf("%d, posicao = %d\n", (int)digitos[j], j);
     }
     free(digitos);
 
